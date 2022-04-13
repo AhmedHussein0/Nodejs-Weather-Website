@@ -9,12 +9,7 @@ const weatherstack = (Latitude,Longitude ,callstack) => {
         }else if(body.error){
             callstack('Unable to find location' , undefined )
         }else {
-            // callstack(undefined,{
-            //     weather_descriptions: response.body.current.weather_descriptions[0],
-            //     temperature: response.body.current.temperature,
-            //     feelslike: response.body.current.feelslike
-            // })
-            callstack(undefined , body.current.weather_descriptions[0] + ", It is currently "+body.current.temperature+" degrees out. It feels like "+body.current.feelslike+" degrees out.")
+            callstack(undefined , body.current.weather_descriptions[0] + ", It is currently "+body.current.temperature+" degrees out. It feels like "+body.current.feelslike+" degrees out," + " The humidity is "+body.current.humidity+"%"+" and the pressure is "+body.current.pressure )
         }
     })
 }
